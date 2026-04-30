@@ -41,11 +41,14 @@
 
 ## 截图
 
-仓库内提供了一张首页 Dashboard 截图示例：
+仓库内当前提供以下页面截图：
 
 - [Dashboard Screenshot](./data/screenshot-home.png)
-
-如果你准备对外展示项目，建议补充 `generate`、`drafts`、`export` 三个页面截图。
+- [Generate Screenshot](./data/screenshot-generate.png)
+- [Drafts Screenshot](./data/screenshot-drafts.png)
+- [Export Overview Screenshot](./data/screenshot-export-overview.png)
+- [Export Assets Screenshot](./data/screenshot-export-assets.png)
+- [Export Publish Screenshot](./data/screenshot-export-publish.png)
 
 ## 快速开始
 
