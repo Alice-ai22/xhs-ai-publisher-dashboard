@@ -2,6 +2,25 @@
   "name": "xhs-ai-publisher-dashboard",
   "version": "0.1.0",
   "private": true,
+  "description": "AI-assisted Xiaohongshu content workflow dashboard with topic management, draft review, scheduling, and manual publishing support.",
+  "keywords": [
+    "nextjs",
+    "typescript",
+    "prisma",
+    "sqlite",
+    "openai",
+    "xiaohongshu",
+    "content-workflow",
+    "creator-tools"
+  ],
+  "homepage": "https://github.com/Alice-ai22/xhs-ai-publisher-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alice-ai22/xhs-ai-publisher-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Alice-ai22/xhs-ai-publisher-dashboard/issues"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

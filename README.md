@@ -41,7 +41,7 @@
 
 ## 截图
 
-仓库内提供了一张首页截图示例：
+仓库内提供了一张首页 Dashboard 截图示例：
 
 - [Dashboard Screenshot](./data/screenshot-home.png)
 
@@ -176,6 +176,13 @@ xhs-ai-publisher-dashboard/
 - 远程对象存储
 - 团队协作审阅
 - 正式商业化所需的安全治理
+
+## Roadmap
+
+- 补充更多页面截图和演示素材
+- 完善开源协作体验，例如 issue / PR 模板
+- 继续增强内容工作流相关的稳定性和可维护性
+- 逐步补充更适合长期使用的配置与排障能力
 
 ## 开发说明
 
