@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model UserProfile {
+  id              String   @id @default(uuid())
+  name            String
+  positioning     String
+  targetAudience  String
+  contentStyle    String
+  bannedWords     String   @default("")
+  commonTags      String   @default("")
+  productInfo     String   @default("")
+  referralLink    String   @default("")
+  adIntensity     String   @default("中")
+  allowMarketing Boolean  @default(false)
+  defaultLength   String   @default("中")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  topics Topic[]
+  drafts Draft[]
+}
+
+model Topic {
+  id               String   @id @default(uuid())
+  title            String
+  direction        String
+  targetAudience   String
+  keywords         String
+  referenceContent String   @default("")
+  productHook      String   @default("")
+  contentType      String
+  status           String   @default("未生成")
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  profileId String?
+  profile   UserProfile? @relation(fields: [profileId], references: [id])
+  drafts    Draft[]
+}
+
+model Draft {
+  id                   String    @id @default(uuid())
+  titles               String
+  hook                 String
+  body                 String
+  bodyNoEmoji          String
+  hashtags             String
+  coverText            String    @default("")
+  coverImagePrompt     String    @default("")
+  coverImageUrl        String    @default("")
+  contentImagePrompts  String    @default("[]")
+  contentImageUrls     String    @default("[]")
+  commentGuide         String    @default("")
+  complianceWarnings   String    @default("[]")
+  publishChecklist     String    @default("[]")
+  riskDisclaimer       String    @default("")
+  templateType         String    @default("干货教程")
+  status               String    @default("Draft")
+  scheduledDate        String    @default("")
+  scheduledTime        String    @default("")
+  publishLink          String    @default("")
+  publishNote          String    @default("")
+  publishPlatform      String    @default("小红书")
+  actualTitle          String    @default("")
+  actualTags           String    @default("")
+  publishedAt          DateTime?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  profileId String?
+  profile   UserProfile? @relation(fields: [profileId], references: [id])
+  topicId   String?
+  topic     Topic?       @relation(fields: [topicId], references: [id])
+  images    GeneratedImage[]
+  schedules PublishSchedule[]
+}
+
+model GeneratedImage {
+  id        String   @id @default(uuid())
+  type      String
+  prompt    String
+  url       String   @default("")
+  localPath String   @default("")
+  width     Int      @default(1080)
+  height    Int      @default(1350)
+  createdAt DateTime @default(now())
+
+  draftId String
+  draft   Draft  @relation(fields: [draftId], references: [id], onDelete: Cascade)
+}
+
+model PublishSchedule {
+  id        String   @id @default(uuid())
+  date      String
+  time      String
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  draftId String
+  draft   Draft  @relation(fields: [draftId], references: [id], onDelete: Cascade)
+}
+
+model ApiSettings {
+  id                 String   @id @default(uuid())
+  aiBaseUrl          String   @default("https://api.openai.com/v1")
+  aiApiKey           String   @default("")
+  textModel          String   @default("gpt-4o")
+  imageModel         String   @default("dall-e-3")
+  defaultCount       Int      @default(3)
+  localSavePath      String   @default("./data/assets")
+  enableSensitiveCheck Boolean @default(true)
+  enableAdCheck      Boolean  @default(true)
+  officialApiAdapter String   @default("")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model GenerationLog {
+  id         String   @id @default(uuid())
+  type       String
+  input      String
+  output     String   @default("")
+  status     String   @default("pending")
+  errorMsg   String   @default("")
+  tokensUsed Int      @default(0)
+  duration   Int      @default(0)
+  createdAt  DateTime @default(now())
+}
