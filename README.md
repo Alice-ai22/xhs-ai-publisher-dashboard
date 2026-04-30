@@ -1,5 +1,11 @@
 # XHS AI Publisher Dashboard
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-149eca)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)](https://www.typescriptlang.org/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2d3748)](https://www.prisma.io/)
+
 一个本地部署的小红书内容工作流面板，聚焦“AI 生成 + 人工审核 + 手动发布”这条合规链路，帮助个人创作者或小团队把账号定位、选题、生成、审核、排期和发布整理进同一个工作台。
 
 ## 项目定位
@@ -41,14 +47,23 @@
 
 ## 截图
 
-仓库内当前提供以下页面截图：
+### Dashboard
 
-- [Dashboard Screenshot](./data/screenshot-home.png)
-- [Generate Screenshot](./data/screenshot-generate.png)
-- [Drafts Screenshot](./data/screenshot-drafts.png)
-- [Export Overview Screenshot](./data/screenshot-export-overview.png)
-- [Export Assets Screenshot](./data/screenshot-export-assets.png)
-- [Export Publish Screenshot](./data/screenshot-export-publish.png)
+![Dashboard](./data/screenshot-home.png)
+
+### Generate
+
+![Generate](./data/screenshot-generate.png)
+
+### Drafts
+
+![Drafts](./data/screenshot-drafts.png)
+
+### Export
+
+![Export Overview](./data/screenshot-export-overview.png)
+![Export Assets](./data/screenshot-export-assets.png)
+![Export Publish](./data/screenshot-export-publish.png)
 
 ## 快速开始
 
